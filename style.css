@@ -1,0 +1,192 @@
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #2a2a2a;
+  padding: 36px 20px 160px;
+  font-family: Lato, sans-serif;
+  color: #f1f1f1;
+}
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+h1 {
+  margin-bottom: 24px;
+}
+ol {
+  font-size: 22px;
+}
+ol li {
+  margin: 8px 0;
+}
+section {
+  margin-bottom: 75px;
+}
+h2 {
+  margin-bottom: 8px;
+}
+.subtitle {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+/* 1. */
+.gradient-transition {
+  width: 450px;
+  height: 150px;
+  background-image: linear-gradient(45deg, pink, orange);
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.gradient-transition p {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  color: #e6e6e6;
+  text-shadow: 1px 1px 0px #111;
+}
+.gradient-transition::after {
+  content: "";
+  display: block;
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(135deg, lightblue, purple);
+  opacity: 0;
+  transition: opacity 0.4s ease-out;
+}
+.gradient-transition:hover::after {
+  opacity: 1;
+}
+
+/* 2. */
+.block {
+  width: 125px;
+  height: 125px;
+}
+
+.b-1 {
+  background-color: lightgreen;
+}
+.b-2 {
+  background-color: lightskyblue;
+  margin-top: -80px;
+  margin-left: 40px;
+}
+.b-3 {
+  background-color: violet;
+  margin-top: -80px;
+  margin-left: 80px;
+}
+
+/*3. */
+
+.card-container {
+  max-width: 600px;
+  background: #f1f1f1;
+  color: #111;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.card-container::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.card-container h2 {
+  margin-bottom: 10px;
+}
+.card-container p {
+  line-height: 1.4;
+}
+img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 50%;
+  float: left;
+  shape-outside: margin-box;
+  /* Une marge négative montre que le texte est au-dessus */
+  margin: 0 20px 5px 0;
+}
+
+/* 4. */
+.inline-block {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    background-color: red;
+}
+.ex-4 {
+    margin-top: -35px;
+}
+
+/* 5. */
+.ex-5-card {
+    width: 300px;
+    background-color: lightblue;
+    color: #111;
+    font-size: 18px;
+    padding: 12px;
+    border-radius: 5px;
+    position: relative;
+}
+.absolute-item {
+    width: 75px;
+    height: 25px;
+    background-color: red;
+    /* Passe au-dessus des autres éléments block-static */
+    position: absolute;
+    top: 20px;
+    /* transform / opacity / etc... peuvent créer des contextes d'empilement */
+    /* transform: rotate(45deg) */
+}
+
+
+/* 6. */
+.parent-context {
+    position: relative;
+    z-index: 1;
+}
+.child-context {
+    width: 75px;
+    height: 75px;
+    position: absolute;
+}
+.ce-1{
+    z-index: 3;
+    background-color: crimson;
+}
+.ce-2 {
+    z-index: 2;
+    background-color: limegreen;
+    top: 20px;
+    left: 20px;
+}
+.ce-3 {
+    z-index: 1;
+    background-color: lightblue;
+    top: 40px;
+    left: 40px;
+}
+
+
+
+
+
+
+
+
+

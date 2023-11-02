@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Painting order</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="container">
+      <section>
+        <h1>Contextes d'empilement / Stacking Contexts</h1>
+
+        <ol>
+          <li>
+            Les éléments avec une position autre que static(la position par
+            défaut) et un z-index négatif.
+          </li>
+          <li>Les éléments type block non positionnés (statiques).</li>
+          <li>Les éléments flottants non-positionnés.</li>
+          <li>
+            Les éléments inline, table et inline-block non positionnés. (et oui,
+            les éléments inline sont au-dessus des block !)
+          </li>
+          <li>
+            Les éléments positionnés(autre que static) avec z-index: auto et les
+            contextes d’empilement créés sans position + z-index, comme avec
+            transform par exemple.
+          </li>
+          <li>
+            Les éléments positionnés qui ont un z-index autre qu'auto et pas de
+            valeur négative.
+            Ces éléments sont disposés en fonction de cette valeur (z-index: 5
+            est au-dessus de z-index: 3 etc …)
+          </li>
+        </ol>
+      </section>
+      <section>
+        <h2>1. Z-index négatif</h2>
+        <p class="subtitle">Ex : Transition de dégradés linéaires</p>
+        <div class="gradient-transition">
+          <p>Gradient transition</p>
+        </div>
+      </section>
+      <section>
+        <h2>2. Éléments display block</h2>
+        <p class="subtitle">Ex : Superposition d'éléments</p>
+        <div class="block b-1"></div>
+        <div class="block b-2"></div>
+        <div class="block b-3"></div>
+      </section>
+      <section>
+        <h2>3. Éléments flottants</h2>
+        <p class="subtitle">Ex : Carte stylée</p>
+        <div class="card-container">
+            <img src="resources/cat.jpg" alt="cat">
+            <h2>Texte autour d'un cercle</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio ipsam asperiores nostrum dicta quisquam quod tempora, alias obcaecati at consequuntur ad voluptate unde nulla? Ut corrupti accusantium reiciendis aut, rem neque. Quae architecto quo enim fuga inventore quia, repellendus expedita?</p>
+          </div>
+      </section>
+      <section>
+        <h2>4. Éléments en ligne et Block</h2>
+        <p class="subtitle">Ex : Superposition d'éléments</p>
+        <span class="inline-block"></span>
+        <div class="block b-1 ex-4"></div>
+      </section>
+      <section>
+        <h2>5. Éléments positionnés et nouveaux contextes</h2>
+        <p class="subtitle">Ex : Carte</p>
+        <div class="ex-5-card">
+            <p>Lorem ipsum dolor sit amet.</p>
+            <p>Lorem ipsum dolor</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+            <div class="absolute-item"></div>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quasi incidunt iusto labore sit asperiores ex similique temporibus distinctio sapiente laborum?</p>
+        </div>
+      </section>
+      <section>
+        <h2>6. Éléments positionnés + z-index !== auto</h2>
+        <p class="subtitle">Ex : Superposition de nouveaux contextes d'empilement</p>
+        <div class="parent-context">
+            <div class="child-context ce-1"></div>
+            <div class="child-context ce-2"></div>
+            <div class="child-context ce-3"></div>
+        </div>
+    </section>
+    </main>
+
+  </body>
+</html>
